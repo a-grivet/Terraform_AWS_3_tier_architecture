@@ -1,17 +1,20 @@
 # Terraform AWS 3-Tier Architecture
 
-![Terraform Version](https://img.shields.io/badge/Terraform-v1.6+-623CE4?logo=terraform)
-![AWS Provider](https://img.shields.io/badge/AWS%20Provider-v5.x-orange?logo=amazon-aws)
-![Status](https://img.shields.io/badge/Status-Stable-green)
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Terraform](https://img.shields.io/badge/Terraform-v1.7+-7B42BC?style=flat-square&logo=terraform)
+![Cloud](https://img.shields.io/badge/Cloud-AWS-orange?logo=amazonaws)
+![CI Status](https://img.shields.io/static/v1?label=CI&message=passing&color=3fb950&style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
+
 
 ## 1. Introduction
-This repository contains a fully automated deployment of a 3-tier architecture on AWS using Terraform. It is ideal for learning, demonstration, or building production-grade infrastructures. The setup implements industry best practices for scalability, security, and maintainability.
+
+This repository contains a fully automated deployment of a 3-tier architecture on AWS using Terraform and three environnements : dev, stagging, prod. 
+
+ The setup implements industry best practices for scalability, security, and maintainability.
 
 The architecture includes:
 - Segmented VPC architecture (web, application, and database tiers)
 - High availability across multiple Availability Zones
-- Bastion host for secure access
 - Auto Scaling Groups and Load Balancers
 - RDS MySQL Multi-AZ support
 
@@ -25,42 +28,16 @@ The architecture includes:
 - **Web Tier**: Public ALB, EC2 Auto Scaling Group
 - **Application Tier**: Internal ALB, EC2 Auto Scaling Group
 - **Database Tier**: RDS MySQL with subnet groups
-- **Access Layer**: Bastion host with restricted SSH
 
 ---
 
-## 3. Architecture Diagram (Mermaid)
-```mermaid
-graph TD
-    IGW([Internet Gateway])
-    NAT([NAT Gateway])
+## 3. Architecture Overview
 
-    subgraph Public_Subnets
-        ALB1([Web ALB])
-        Bastion([Bastion Host])
-        WebASG([Web ASG EC2 Instances])
-    end
+![Three Tier Architecture](./3_tier_architecture.webp)
 
-    subgraph Private_App_Subnets
-        ALB2([Internal App ALB])
-        AppASG([App ASG EC2 Instances])
-    end
-
-    subgraph Private_DB_Subnets
-        RDS([RDS MySQL])
-    end
-
-    IGW --> ALB1
-    ALB1 --> WebASG
-    Bastion --> WebASG
-    WebASG --> ALB2
-    ALB2 --> AppASG
-    AppASG --> RDS
-    NAT --> AppASG
-    NAT --> RDS
-```
-
----
+<p align="center">
+  <img src="3_tier_architecture.webp" alt="Three Tier Architecture" width="600">
+</p>
 
 ## 4. Benefits of This Architecture
 
@@ -71,7 +48,6 @@ graph TD
 ###  Security
 - Public exposure limited strictly to the ALB.
 - Application and database tiers live entirely in private networks.
-- Bastion host provides controlled SSH entry.
 
 ###  High Availability
 - All tiers span multiple Availability Zones.
@@ -84,29 +60,8 @@ graph TD
 
 ---
 
-## 5. Repository Structure
-```
-.
-├── main.tf
-├── provider.tf
-├── variables.tf
-├── outputs.tf
-├── vpc.tf
-├── subnets.tf
-├── nat_igw.tf
-├── security_groups.tf
-├── alb.tf
-├── asg_web.tf
-├── asg_app.tf
-├── rds.tf
-├── bastion.tf
-├── terraform.tfvars.example
-└── README.md
-```
 
----
-
-## 6. How to Use This Project
+## 5. How to Use This Project
 
 ### 1. Install Requirements
 - Terraform ≥ **1.6**
@@ -154,35 +109,15 @@ terraform apply
 ```bash
 terraform destroy
 ```
-
 ---
 
 ## 7. Project Description (for GitHub)
 **A complete Terraform deployment of a production-grade 3-tier architecture on AWS**, featuring:
 - Highly available VPC architecture across multiple AZs
 - Web, application, and database tiers with strict isolation
-- Bastion host for secure SSH access
 - Auto Scaling EC2 workloads
 - Public and internal Load Balancers
 - RDS MySQL with Multi-AZ capabilities
-
-Ideal for learning, DevOps portfolios, POCs, and real-world deployments.
-
----
-
-## 8. Clean Commit History (Suggested)
-```
-feat: initial project structure
-feat: add VPC and subnet definitions
-feat: implement IGW, NAT, and route tables
-feat: add security groups for all tiers
-feat: create public web ALB and web ASG
-feat: create private app ALB and app ASG
-feat: implement RDS MySQL database
-feat: add bastion host
-docs: create complete README with diagrams and badges
-refactor: improve variable descriptions and structure
-```
 
 ---
 
@@ -193,8 +128,5 @@ refactor: improve variable descriptions and structure
 - AWS ELB Docs: https://docs.aws.amazon.com/elasticloadbalancing/latest/application
 - AWS RDS Docs: https://docs.aws.amazon.com/rds
 
----
 
-## 10. License
-MIT License
 
