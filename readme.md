@@ -37,7 +37,6 @@ The architecture includes:
   <img src="./3_tier_architecture.png" alt="Three Tier Architecture" width="1000">
 </p>
 
-
 ## 4. Benefits of This Architecture
 
 ###  Scalability
@@ -108,19 +107,10 @@ terraform apply
 ```bash
 terraform destroy
 ```
----
-
-## 7. Project Description (for GitHub)
-**A complete Terraform deployment of a production-grade 3-tier architecture on AWS**, featuring:
-- Highly available VPC architecture across multiple AZs
-- Web, application, and database tiers with strict isolation
-- Auto Scaling EC2 workloads
-- Public and internal Load Balancers
-- RDS MySQL with Multi-AZ capabilities
 
 ---
 
-## 9. References
+## 6. References
 - Terraform Documentation: https://developer.hashicorp.com/terraform/docs
 - AWS Well-Architected Framework: https://aws.amazon.com/architecture/well-architected/
 - AWS VPC Docs: https://docs.aws.amazon.com/vpc/latest/userguide
