@@ -33,7 +33,8 @@ The architecture includes:
 
 ## 3. Architecture Overview
 
-![Three Tier Architecture](./3_tier_architecture.webp)
+![Three Tier Architecture](./3_tier_architecture.png)
+
 
 <p align="center">
   <img src="3_tier_architecture.webp" alt="Three Tier Architecture" width="600">
