@@ -1,0 +1,98 @@
+# Local Terraform state
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+terraform.tfvars
+*.tfvars.json
+
+# Local .terraform directories
+.terraform/
+.terraform.lock.hcl
+
+# Terraform plan outputs
+*.plan
+*.tfplan
+
+# ========================================================================
+# AWS SPECIFIC
+# ========================================================================
+
+# AWS credentials and config
+.aws/
+*.pem
+*.key
+*.crt
+
+# Temporary files containing secrets or tokens
+credentials.csv
+*secret*
+*token*
+
+# ========================================================================
+# PYTHON / SCRIPTS / UTILS
+# ========================================================================
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Logs
+*.log
+logs/
+debug.log
+
+# ========================================================================
+# OS / EDITOR SPECIFIC
+# ========================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VSCode
+.vscode/
+.history/
+*.code-workspace
+
+# ========================================================================
+# GENERATED FILES
+# ========================================================================
+
+# Diagrams, screenshots, test outputs
+docs/*.png
+docs/*.svg
+docs/*.webp
+Tests/output/
+tmp/
+__output__/
+
+# Local development variables or secrets
+.env
+.env.*
+
+# ========================================================================
+# BACKUP / ARCHIVE FILES
+# ========================================================================
+
+*.bak
+*.tmp
+*.swp
+*.zip
+*.tar.gz
+*.rar
+*.7z

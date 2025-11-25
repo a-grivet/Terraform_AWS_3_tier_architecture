@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+# Install Python 3 on Amazon Linux 2 or Ubuntu
+if command -v yum >/dev/null 2>&1; then
+  yum install -y python3 || true
+elif command -v apt-get >/dev/null 2>&1; then
+  apt-get update -y && apt-get install -y python3 || true
+fi
+
+mkdir -p /var/www
+echo "Hello from EC2 in Auto Scaling Group!" > /var/www/index.html
+nohup python3 -m http.server 80 --directory /var/www >/var/log/http.server.log 2>&1 &
