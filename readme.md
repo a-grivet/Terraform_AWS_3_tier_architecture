@@ -73,7 +73,7 @@ aws configure --profile <your-profile>
 
 ### 3. Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/terraform-aws-3tier.git
+git clone https://github.com/a-grivet/terraform-aws-3tier.git
 cd terraform-aws-3tier
 ```
 
