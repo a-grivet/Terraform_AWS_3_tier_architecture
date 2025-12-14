@@ -93,9 +93,9 @@ Update:
 terraform init
 ```
 
-### 6. Validate
+### 6. Plan
 ```bash
-terraform validate
+terraform plan
 ```
 
 ### 7. Apply
